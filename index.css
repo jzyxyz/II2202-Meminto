@@ -1,12 +1,11 @@
 body{
     margin:0;
-    background-color: #2C3E50;
     font-family: 'Roboto', sans-serif;
     outline: none;
-    color: #2C3E50;
 }
 .hdnft{
     background-color: #ECF0F1;
+    font-family: 'Roboto Slab', sans-serif;
 }
 
 a{
@@ -25,7 +24,7 @@ a:hover{
     letter-spacing:1.5px;
     -webkit-user-select: none;
     user-select: none;
-    border-top: 5px solid #3498DB;
+    border-top: 5px solid salmon;
 }
 #tools{
     background-color: white;
@@ -35,7 +34,7 @@ a:hover{
     display: inline-block;
     margin: 0;
     padding-left: 10px;
-    color:#3498DB;
+    color:salmon;
 }
 .btn{
     cursor: pointer;
@@ -72,22 +71,7 @@ a:hover{
     letter-spacing: -0.2px;
 }
 
-.submit{
-    color:#3498DB;
-    opacity: 1;
-}
 
-#mailSubmit{
-    display: none;
-}
-.error{
-    color:#E74C3C;
-    opacity: 1;    
-}
-
-#mailErr{
-    display: none;
-}
 
 #entryList{
     text-indent: 5px;
@@ -160,30 +144,22 @@ a:hover{
     -webkit-user-select: none;
     user-select: none;
     width: 40px;
-    caret-color:#2C3E50;
-}
-.white-caret{
     caret-color: white;
 }
-.dark-caret{
-    caret-color: #2C3E50;
-}
-#tip{
-    margin-top: 20px;
-    display:none
-}
-#tip p{
-    margin-left: 30px;
+
+#hintBox{
+    font-family: Roboto Slab;
     text-align: center;
-    color: lightsalmon;
-    letter-spacing: 1px;
-    font-size: 15px;
+    background-color: salmon;
+    color: white;
+    height: 60px;
+    width: 200px;
+    margin: auto;
+    display: none; 
 }
-#hint{
-    bottom: 30%;
-    text-align: center;
-    background-color: orangered;
-    display: none;
+#hintContent{
+    padding: 14px;
+    font-size: 22px;
 }
 
 .on{
@@ -192,13 +168,4 @@ a:hover{
   
 #mistakeList ul{
     display:none;
-}
-.footer{
-    height:30px;
-    width:100%;
-    position: absolute;
-    bottom: 0px;
-    padding-left:30px;
-    font-size:18px;
-    padding-top:10px;
 }

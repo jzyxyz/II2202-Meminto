@@ -8,10 +8,6 @@ $('#searchBtn').click(function(){
   qInput.val('');
   inputSlide(qInput);
 })
-//share
-//mail
-//timer
-//settings
 //sound
 //list
 $('#listBtn').click(function(){
@@ -43,17 +39,17 @@ eList.on('mousedown','li',function(){
 })
 eList.on('mouseenter','li',function(){
   switch(vocabulary[$(this).text()]){
-    case 'der': $(this).addClass('mBg'); break;
-    case 'das': $(this).addClass('nBg'); break;
-    case 'die': $(this).addClass('fBg'); break;
+    case articles[0]: $(this).addClass('mBg'); break;
+    case articles[1]: $(this).addClass('nBg'); break;
+    case articles[2]: $(this).addClass('fBg'); break;
     default: break;
   }
 })
 eList.on('mouseleave','li',function(){
   switch(vocabulary[$(this).text()]){
-    case 'der': $(this).removeClass('mBg'); break;
-    case 'das': $(this).removeClass('nBg'); break;
-    case 'die': $(this).removeClass('fBg'); break;
+    case articles[0]: $(this).removeClass('mBg'); break;
+    case articles[1]: $(this).removeClass('nBg'); break;
+    case articles[2]: $(this).removeClass('fBg'); break;
     default: break;
   }
 })
@@ -62,22 +58,6 @@ eList.on('mouseleave','li',function(){
 // })
 
 //night mode
-var brighten = function(){
-	jQuery("body").animate({
-		backgroundColor: jQuery.Color('white')
-  }, 500);
-}
-var darken = function(){
-  jQuery("body").animate({
-    backgroundColor:'#2C3E50'
-  }, 500);
-}
-var fnArr = [brighten,darken];
-jQuery("#nightModeBtn").click(function(){
-  fnArr[0]();
-  gInput.toggleClass('white-caret')
-  fnArr = fnArr.reverse();
-});
 
 //collapse header and footer
 $('#collapseBtn').click(function(){

@@ -7,7 +7,7 @@ var gInput = $('.gender');
 
 var qInput = $('#queryInput');
 var mistakeList = $('#mistakeList ul');
-var hint = $('#hint');
+var hint = $('#hintBox');
 var btns =$('.btn');
 
 var eList = $('#entryList');
@@ -21,6 +21,7 @@ var au3 = document.getElementById('au3')
 var { langcfg, colorArr } = config
 var { name, number, articles}  = langcfg 
 var vocabulary = name == "de" ? de_voc : name == "sv" ? sv_voc : fr_voc
+
 
 $(document).ready(function(){
   gInput.eq(0).focus();
@@ -88,7 +89,7 @@ function check(){
   else
   {
     hint.fadeIn(function(){
-        hint.delay(300).fadeOut();
+        hint.delay(300).fadeOut("20");
         gInput.eq(1).focus();
     })
     mistakes.add(word.text());
@@ -123,9 +124,9 @@ function colorize(color){
 }
 
 function getEntry(query){
-  var arr = new Array();
-  var exp = new RegExp(query,'gim');
-  for(var i in vocabulary){
+  let arr = new Array();
+  let exp = new RegExp(query,'gim');
+  for(let i in vocabulary){
     if(exp.test(i)) arr.push(i)
   }
   return arr;
