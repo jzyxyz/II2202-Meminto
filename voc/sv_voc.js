@@ -51,7 +51,7 @@ var sv_voc = {
     "begravning": "en",
     "löjtnant": "en",
     "akvarium": "ett",
-    "fiol,": "en",
+    "fiol": "en",
     "utomhusreklam": "en",
     "rest": "en",
     "linjal": "en",

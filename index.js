@@ -1,6 +1,4 @@
-
-
-var expJSON;
+var i = 0
 var mistakes = new Set();
 var word = $('#word');
 var gInput = $('.gender');
@@ -14,6 +12,12 @@ var eList = $('#entryList');
 var defaultColor;
 var nightColor = '';
 
+var begin = 0
+var end = 0
+var total = 0
+
+var soundFlag = 0
+
 var toolBgc = ["white","lightgray"];
 var au1 = document.getElementById('au1')
 var au2 = document.getElementById('au2')
@@ -26,6 +30,8 @@ var vocabulary = name == "de" ? de_voc : name == "sv" ? sv_voc : fr_voc
 $(document).ready(function(){
   gInput.eq(0).focus();
   defaultColor = word.css('color') 
+  loadWord();
+  begin = Date.now()
 })
 
 gInput.blur(function(){
@@ -70,21 +76,25 @@ gInput.keyup(function(event){
 function check(){
   var str = gInput.eq(0).text() + gInput.eq(1).text() + gInput.eq(2).text().trim();
   if(str == vocabulary[word.text()]){
+    end=Date.now()
+    let duration= ( end - begin ) / 1000
+    console.log(`${i}, ${word.text()}, true,  ${duration}`)
+    total += duration
+    i++
     switch(str){
         case articles[0]:
-        colorize(colorArr[0]);
-        au1.play()
-        break;
+          colorize(colorArr[0]);
+          soundFlag == 1 && au1.play()
+          break;
         case articles[1]:
-        colorize(colorArr[1]);
-        au2.play()
-        break;
+          colorize(colorArr[1]);
+          soundFlag == 1 && au2.play()
+          break;
         case articles[2]:
-        colorize(colorArr[2]);
-        au3.play()
-        break;
+          colorize(colorArr[2]);
+          soundFlag == 1 && au3.play()
+          break;
     }
-    console.log(`${word.text()},true`)
   } 
   else
   {
@@ -93,8 +103,8 @@ function check(){
         gInput.eq(1).focus();
     })
     mistakes.add(word.text());
-    console.log(`${word.text()},false`)
-    gInput.each(function(){ $(this).text("\u00a0") })
+    console.log(`${i}, ${word.text()}, false, undefined`)
+    gInput.each(function(){ $(this).text("\u00a0\u00a0") })
   }
 }
 
@@ -120,7 +130,10 @@ function fillInput(str){
 function colorize(color){
     word.css('color',color).delay(300).fadeOut(function(){
         loadWord();
+        begin=Date.now();
+        //console.log(`${word.text()} begins at ${begin}`)
     })
+
 }
 
 function getEntry(query){

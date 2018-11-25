@@ -1,6 +1,6 @@
-// btns.click(function(){
-//   $(this).toggleClass('btnActive');
-// })
+btns.click(function(){
+  $(this).toggleClass('btnActive');
+})
 //search 
 $('#searchBtn').click(function(){
   eList.empty();
@@ -9,6 +9,10 @@ $('#searchBtn').click(function(){
   inputSlide(qInput);
 })
 //sound
+
+$('#soundBtn').click(function(){
+  soundFlag = !soundFlag
+})
 //list
 $('#listBtn').click(function(){
   mistakeList.empty();
